@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  body{ margin:0; padding:0; }
+  #rdmx-sites-hero{
+    --ink:#0E1B2A; --ink-soft:#16283F; --paper:#F7F8F4;
+    --growth:#1FA35C; --growth-dark:#157A44; --muted:#5B6B7A; --line:rgba(14,27,42,0.10);
+    font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper);
+    padding:40px 24px; box-sizing:border-box;
+  }
+  #rdmx-sites-hero *{box-sizing:border-box;}
+  #rdmx-sites-hero .wrap{max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:36px; align-items:center;}
+  #rdmx-sites-hero .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--growth-dark); display:block; margin-bottom:14px;}
+  #rdmx-sites-hero h1{font-family:'Sora',sans-serif; font-size:42px; font-weight:800; line-height:1.1; margin:0 0 18px;}
+  #rdmx-sites-hero h1 em{font-style:normal; color:var(--growth-dark);}
+  #rdmx-sites-hero p.lede{font-size:16px; color:var(--muted); line-height:1.7; margin:0 0 26px;}
+  #rdmx-sites-hero .actions{display:flex; gap:12px; flex-wrap:wrap;}
+  #rdmx-sites-hero .btn{display:inline-block; padding:13px 24px; border-radius:8px; font-weight:700; font-size:15px; text-decoration:none; cursor:pointer;}
+  #rdmx-sites-hero .btn-primary{background:var(--growth); color:#fff;}
+  #rdmx-sites-hero .stat-card{background:var(--ink); color:#fff; border-radius:16px; padding:24px;}
+  #rdmx-sites-hero .stat-card .label{font-family:'IBM Plex Mono',monospace; font-size:11px; color:#9FB0BE; text-transform:uppercase; margin-bottom:16px; display:flex; justify-content:space-between;}
+  #rdmx-sites-hero .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  #rdmx-sites-hero .stat-num{font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:600; color:var(--growth);}
+  #rdmx-sites-hero .stat-label{font-size:11px; color:#C7D2DA; margin-top:2px;}
+  @media (max-width:700px){ #rdmx-sites-hero .wrap{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+  <div id="rdmx-sites-hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Digital Marketing Specialist</span>
+        <h1>Grow your brand with <em>data-driven</em> digital marketing that converts.</h1>
+        <p class="lede">Social media management, Meta &amp; Google Ads, SEO, and YouTube growth — for startups, small businesses and eCommerce brands across the USA, Canada, Australia &amp; Europe.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=8801778997944" target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="label"><span>Verified Track Record</span><span>★ 4.9</span></div>
+        <div class="stat-grid">
+          <div><div class="stat-num">390+</div><div class="stat-label">Projects Completed</div></div>
+          <div><div class="stat-num">175+</div><div class="stat-label">Clients Served</div></div>
+          <div><div class="stat-num">Since 2022</div><div class="stat-label">Freelancing</div></div>
+          <div><div class="stat-num">Google</div><div class="stat-label">Ads Certified</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
