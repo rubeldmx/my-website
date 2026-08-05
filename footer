@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+  footer { background: #0F172A; color: #94A3B8; padding: 45px 20px 20px 20px; font-size: 14px; }
+  .footer-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 30px; }
+  
+  .footer-brand h3 { color: #38BDF8; margin: 0 0 12px 0; font-size: 24px; font-weight: 700; }
+  .footer-brand p { font-size: 13px; line-height: 1.6; color: #94A3B8; margin: 0; }
+  
+  .footer-links h4 { color: #FFFFFF; margin: 0 0 16px 0; font-size: 16px; font-weight: 600; }
+  .footer-links ul { list-style: none; padding: 0; margin: 0; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { color: #94A3B8; text-decoration: none; font-size: 13.5px; transition: color 0.2s; }
+  .footer-links a:hover { color: #38BDF8; }
+  
+  /* Official Social Logo Styling */
+  .social-grid { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 5px; align-items: center; }
+  .social-link { text-decoration: none; transition: transform 0.2s ease-in-out; display: inline-block; }
+  .social-link:hover { transform: translateY(-3px); }
+  .social-link img { width: 36px; height: 36px; display: block; object-fit: contain; }
+
+  .bottom-bar { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 35px; padding-top: 20px; text-align: center; font-size: 12.5px; color: #64748B; }
+  
+  @media (max-width: 768px) { .footer-container { grid-template-columns: 1fr; gap: 25px; } }
+</style>
+</head>
+<body>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>Rubel DMX</h3>
+      <p>Data-driven Digital Marketing, SEO, and Social Media Growth Expert. Dedicated to helping businesses scale with proven online strategies.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h4>Follow Rubel DMX</h4>
+      <div class="social-grid">
+        <!-- LinkedIn Official PNG -->
+        <a href="https://www.linkedin.com/in/md-rubel-hosen-bd/" target="_blank" class="social-link" title="LinkedIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Official Logo">
+        </a>
+        <!-- Facebook Official PNG -->
+        <a href="https://www.facebook.com/rubel.dmx.bd/" target="_blank" class="social-link" title="Facebook">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook Official Logo">
+        </a>
+        <!-- Instagram Official PNG -->
+        <a href="https://www.instagram.com/rubel.dmx/" target="_blank" class="social-link" title="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Official Logo">
+        </a>
+        <!-- Pinterest Official PNG -->
+        <a href="https://www.pinterest.com/RubelDMX/" target="_blank" class="social-link" title="Pinterest">
+          <img src="https://cdn-icons-png.flaticon.com/512/145/145808.png" alt="Pinterest Official Logo">
+        </a>
+        <!-- X (Twitter) Official White PNG -->
+        <a href="https://x.com/RubelDMX" target="_blank" class="social-link" title="X (Twitter)">
+          <img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="X Official Logo">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    © 2026 Rubel DMX. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>
