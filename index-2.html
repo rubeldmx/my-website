@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  body{ margin:0; padding:0; }
+  #rdmx-rest{
+    --ink:#0E1B2A; --ink-soft:#16283F; --paper:#F7F8F4;
+    --growth:#1FA35C; --growth-dark:#157A44; --muted:#5B6B7A; --line:rgba(14,27,42,0.10); --white:#fff;
+    font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper);
+    padding:8px 24px 40px; box-sizing:border-box;
+  }
+  #rdmx-rest *{box-sizing:border-box;}
+  #rdmx-rest h2,#rdmx-rest h3,#rdmx-rest h4{font-family:'Sora',sans-serif; margin:0;}
+  #rdmx-rest .wrap{max-width:1000px; margin:0 auto;}
+  #rdmx-rest .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--growth-dark); display:block; margin-bottom:10px;}
+  #rdmx-rest .section{padding:44px 0;}
+  #rdmx-rest .section-head{max-width:600px; margin-bottom:28px;}
+  #rdmx-rest .section-head h2{font-size:28px; font-weight:800;}
+  #rdmx-rest .section-head p{color:var(--muted); margin-top:10px; font-size:14.5px;}
+
+  #rdmx-rest .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  #rdmx-rest .service-card{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:20px;}
+  #rdmx-rest .icon-tag{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--growth-dark); text-transform:uppercase; display:block; margin-bottom:8px;}
+  #rdmx-rest .service-card h3{font-size:15.5px; font-weight:700; margin-bottom:6px;}
+  #rdmx-rest .service-card p{font-size:13px; color:var(--muted); margin:0;}
+
+  #rdmx-rest .process-list{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; counter-reset:step;}
+  #rdmx-rest .process-step{position:relative; padding-top:40px; border-top:2px solid var(--line);}
+  #rdmx-rest .process-step::before{counter-increment:step; content:counter(step, decimal-leading-zero); position:absolute; top:-14px; left:0; font-family:'IBM Plex Mono',monospace; font-size:11px; color:#fff; background:var(--growth); width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center;}
+  #rdmx-rest .process-step h4{font-size:14px; font-weight:700; margin-bottom:4px;}
+  #rdmx-rest .process-step p{font-size:12.5px; color:var(--muted); margin:0;}
+
+  #rdmx-rest .portfolio-card{background:var(--ink); color:var(--paper); border-radius:16px; padding:24px;}
+  #rdmx-rest .portfolio-card .platform{font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--growth); text-transform:uppercase;}
+  #rdmx-rest .portfolio-card h3{font-size:17px; margin:8px 0 10px;}
+  #rdmx-rest .portfolio-card p{font-size:13px; color:#C7D2DA; margin:0 0 12px;}
+  #rdmx-rest .portfolio-highlights{margin:0; padding-left:16px;}
+  #rdmx-rest .portfolio-highlights li{font-size:12.5px; color:#C7D2DA; margin-bottom:5px;}
+
+  #rdmx-rest .testimonial-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  #rdmx-rest .testimonial-card{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:18px;}
+  #rdmx-rest .stars{color:#F2A93B; font-size:13px; margin-bottom:8px;}
+  #rdmx-rest .author-name{font-weight:700; font-size:13.5px; display:block;}
+  #rdmx-rest .author-role{font-size:11px; color:var(--muted);}
+  #rdmx-rest .quote{font-size:12.5px; color:var(--ink-soft); font-style:italic; margin-top:10px; line-height:1.6;}
+
+  #rdmx-rest .faq-item{border-bottom:1px solid var(--line); padding:14px 0;}
+  #rdmx-rest .faq-item summary{font-family:'Sora',sans-serif; font-weight:700; font-size:14.5px; cursor:pointer;}
+  #rdmx-rest .faq-item p{font-size:13px; color:var(--muted); margin:8px 0 0; line-height:1.6;}
+
+  #rdmx-rest .cta-banner{background:var(--growth); color:#fff; border-radius:18px; padding:36px 28px; text-align:center;}
+  #rdmx-rest .cta-banner h2{font-size:22px; margin-bottom:8px;}
+  #rdmx-rest .cta-banner p{color:rgba(255,255,255,0.9); margin-bottom:18px; font-size:14px;}
+  #rdmx-rest .btn{display:inline-block; background:var(--ink); color:#fff; font-weight:700; font-size:14px; padding:12px 24px; border-radius:24px; text-decoration:none; cursor:pointer;}
+
+  @media (max-width:700px){
+    #rdmx-rest .services-grid, #rdmx-rest .testimonial-grid{grid-template-columns:1fr;}
+    #rdmx-rest .process-list{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+<div id="rdmx-rest">
+  <div class="wrap">
+
+    <section class="section">
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2>Everything your brand needs to grow online</h2>
+      </div>
+      <div class="services-grid">
+        
+        <!-- 1. Advertising -->
+        <div class="service-card">
+          <span class="icon-tag">Paid Ads</span>
+          <h3>Paid Advertising</h3>
+          <p>Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads, Advanced Audience Segmentation &amp; Lookalike Audiences.</p>
+        </div>
+
+        <!-- 2. Social Media Marketing -->
+        <div class="service-card">
+          <span class="icon-tag">Social</span>
+          <h3>Social Media Marketing</h3>
+          <p>Management &amp; Content Creation for Facebook, Instagram, TikTok, LinkedIn, Pinterest, X, and Reddit.</p>
+        </div>
+
+        <!-- 3. Tracking & Analytics -->
+        <div class="service-card">
+          <span class="icon-tag">Analytics</span>
+          <h3>Tracking &amp; Analytics</h3>
+          <p>Pixel &amp; API Setup, GA4 (Attribution Modeling, Reports, Funnels) and Google Looker Studio Dashboards.</p>
+        </div>
+
+        <!-- 4. E-commerce & CRO -->
+        <div class="service-card">
+          <span class="icon-tag">E-Commerce</span>
+          <h3>E-Commerce &amp; CRO</h3>
+          <p>Shopify/WooCommerce Setup, Google Merchant Center, Shopping Ads, Remarketing, A/B Testing &amp; Conversion Optimization.</p>
+        </div>
+
+        <!-- 5. SEO & Content -->
+        <div class="service-card">
+          <span class="icon-tag">SEO &amp; Content</span>
+          <h3>SEO &amp; YouTube Growth</h3>
+          <p>Google SEO, YouTube SEO, Channel Management, Content Creation, and SEO/Website Content Writing.</p>
+        </div>
+
+        <!-- 6. Copywriting & Sales Psychology -->
+        <div class="service-card">
+          <span class="icon-tag">Copywriting</span>
+          <h3>Copywriting &amp; Sales Funnels</h3>
+          <p>Persuasive Ad Copywriting (AIDA, PAS), Sales Funnel Writing, Email Sequences, and Sales Pages.</p>
+        </div>
+
+        <!-- 7. Web & Landing Pages -->
+        <div class="service-card">
+          <span class="icon-tag">Development</span>
+          <h3>Web &amp; Landing Pages</h3>
+          <p>Landing Page Development, WordPress, Basic HTML/CSS, Domain/Hosting Setup, Google Sites, and Blogger.</p>
+        </div>
+
+        <!-- 8. Design & Video Editing -->
+        <div class="service-card">
+          <span class="icon-tag">Creative</span>
+          <h3>Design &amp; Media Production</h3>
+          <p>Logo Design, Social Posts, Banner Design, CapCut Video Editing, and Canva Assets.</p>
+        </div>
+
+        <!-- 9. AI, Strategy & Operations -->
+        <div class="service-card">
+          <span class="icon-tag">Strategy &amp; AI</span>
+          <h3>AI, Strategy &amp; Operations</h3>
+          <p>AI Tools (ChatGPT, Claude, Gemini), Brand Positioning, Strategy Planning, Email Marketing, and VA Operations.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="eyebrow">How We Work</span>
+        <h2>A simple, four-step process</h2>
+      </div>
+      <div class="process-list">
+        <div class="process-step"><h4>Audit</h4><p>Free review of your current presence.</p></div>
+        <div class="process-step"><h4>Strategy</h4><p>A clear plan built around your goals.</p></div>
+        <div class="process-step"><h4>Execute</h4><p>Campaigns go live — managed end-to-end.</p></div>
+        <div class="process-step"><h4>Grow</h4><p>Monthly reporting and optimization.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="eyebrow">Recent Work</span>
+        <h2>Results from real client work</h2>
+      </div>
+      <div class="portfolio-card">
+        <span class="platform">Social Media Management</span>
+        <h3>Sorme Cosmetics</h3>
+        <p>Managed social media for this vegan, cruelty-free makeup &amp; skincare brand (sorme.com) across Instagram, Facebook &amp; TikTok — Jan 2024 to Aug 2025.</p>
+        <ul class="portfolio-highlights">
+          <li>Planned &amp; scheduled content calendars aligned with product launches and promotions</li>
+          <li>Monitored page performance to support e-commerce &amp; retail goals</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="eyebrow">Client Feedback</span>
+        <h2>Real, verified reviews from Fiverr</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <span class="author-name">deebritt7</span><span class="author-role">United States</span>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Rubel did a wonderful job creating content for my brand. Very experienced and knowledgeable. I would not hesitate working with him again."</p>
+        </div>
+        <div class="testimonial-card">
+          <span class="author-name">gwefinc</span><span class="author-role">United States — Repeat Client</span>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"He is the best, I will certainly continue to use him. It is his patience and quality of work I am most pleased with."</p>
+        </div>
+        <div class="testimonial-card">
+          <span class="author-name">tonyharris68</span><span class="author-role">United Kingdom</span>
+          <div class="stars">★★★★★</div>
+          <p class="quote">"Excellent with communication, very professional and his work is quality. Hope to continue working with him!"</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Common questions before we start</h2>
+      </div>
+      <details class="faq-item">
+        <summary>What does the free audit actually include?</summary>
+        <p>A review of your current social media pages, ad accounts, or YouTube channel — with clear notes on what's working, what's not, and where you're likely losing customers or ad spend.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you work with businesses outside Bangladesh?</summary>
+        <p>Yes — most current clients are based in the USA, Canada, Australia and Europe. All communication is in English, over WhatsApp, email or your preferred tool.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is there a minimum contract length?</summary>
+        <p>No long-term lock-in. Most clients start with a one-month trial period before committing to an ongoing retainer.</p>
+      </details>
+    </section>
+
+    <section class="section">
+      <div class="cta-banner">
+        <h2>Ready to grow your brand online?</h2>
+        <p>Get a free audit and see exactly what's holding your business back — no cost, no obligation.</p>
+        <a class="btn" href="https://api.whatsapp.com/send?phone=8801778997944&text=Hi,%20I%20would%20like%20to%20get%20a%20free%20audit%20for%20my%20brand." target="_blank" rel="noopener noreferrer">Get Your Free Audit</a>
+      </div>
+    </section>
+
+  </div>
+</div>
+</body>
+</html>
