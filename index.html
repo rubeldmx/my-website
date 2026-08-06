@@ -1,34 +1,467 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rubel DMX - Digital Marketing Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
-  body{ margin:0; padding:0; }
-  #rdmx-sites-hero{
-    --ink:#0E1B2A; --ink-soft:#16283F; --paper:#F7F8F4;
-    --growth:#1FA35C; --growth-dark:#157A44; --muted:#5B6B7A; --line:rgba(14,27,42,0.10);
-    font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper);
-    padding:40px 24px; box-sizing:border-box;
+  :root {
+    --ink: #0E1B2A;
+    --ink-soft: #16283F;
+    --paper: #F7F8F4;
+    --growth: #1FA35C;
+    --growth-dark: #157A44;
+    --muted: #5B6B7A;
+    --line: rgba(14,27,42,0.10);
+    --white: #ffffff;
   }
-  #rdmx-sites-hero *{box-sizing:border-box;}
-  #rdmx-sites-hero .wrap{max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:36px; align-items:center;}
-  #rdmx-sites-hero .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--growth-dark); display:block; margin-bottom:14px;}
-  #rdmx-sites-hero h1{font-family:'Sora',sans-serif; font-size:42px; font-weight:800; line-height:1.1; margin:0 0 18px;}
-  #rdmx-sites-hero h1 em{font-style:normal; color:var(--growth-dark);}
-  #rdmx-sites-hero p.lede{font-size:16px; color:var(--muted); line-height:1.7; margin:0 0 26px;}
-  #rdmx-sites-hero .actions{display:flex; gap:12px; flex-wrap:wrap;}
-  #rdmx-sites-hero .btn{display:inline-block; padding:13px 24px; border-radius:8px; font-weight:700; font-size:15px; text-decoration:none; cursor:pointer;}
-  #rdmx-sites-hero .btn-primary{background:var(--growth); color:#fff;}
-  #rdmx-sites-hero .stat-card{background:var(--ink); color:#fff; border-radius:16px; padding:24px;}
-  #rdmx-sites-hero .stat-card .label{font-family:'IBM Plex Mono',monospace; font-size:11px; color:#9FB0BE; text-transform:uppercase; margin-bottom:16px; display:flex; justify-content:space-between;}
-  #rdmx-sites-hero .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-  #rdmx-sites-hero .stat-num{font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:600; color:var(--growth);}
-  #rdmx-sites-hero .stat-label{font-size:11px; color:#C7D2DA; margin-top:2px;}
-  @media (max-width:700px){ #rdmx-sites-hero .wrap{grid-template-columns:1fr;} }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* --- HERO SECTION --- */
+  #rdmx-sites-hero {
+    padding: 40px 24px;
+  }
+
+  #rdmx-sites-hero .wrap {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--growth-dark);
+    display: block;
+    margin-bottom: 14px;
+  }
+
+  #rdmx-sites-hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 18px;
+  }
+
+  #rdmx-sites-hero h1 em {
+    font-style: normal;
+    color: var(--growth-dark);
+  }
+
+  #rdmx-sites-hero p.lede {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 0 0 26px;
+  }
+
+  #rdmx-sites-hero .actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--growth);
+    color: #fff;
+  }
+
+  #rdmx-sites-hero .stat-card {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  #rdmx-sites-hero .stat-card .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #9FB0BE;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #rdmx-sites-hero .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  #rdmx-sites-hero .stat-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--growth);
+  }
+
+  #rdmx-sites-hero .stat-label {
+    font-size: 11px;
+    color: #C7D2DA;
+    margin-top: 2px;
+  }
+
+  /* --- REST OF SECTIONS --- */
+  #rdmx-rest {
+    padding: 8px 24px 40px;
+  }
+
+  #rdmx-rest h2, #rdmx-rest h3, #rdmx-rest h4 {
+    font-family: 'Sora', sans-serif;
+    margin: 0;
+  }
+
+  #rdmx-rest .section {
+    padding: 44px 0;
+  }
+
+  #rdmx-rest .section-head {
+    max-width: 600px;
+    margin-bottom: 28px;
+  }
+
+  #rdmx-rest .section-head h2 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  #rdmx-rest .section-head p {
+    color: var(--muted);
+    margin-top: 10px;
+    font-size: 14.5px;
+  }
+
+  #rdmx-rest .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  #rdmx-rest .service-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 20px;
+  }
+
+  #rdmx-rest .icon-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--growth-dark);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  #rdmx-rest .service-card h3 {
+    font-size: 15.5px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  #rdmx-rest .service-card p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  #rdmx-rest .process-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    counter-reset: step;
+  }
+
+  #rdmx-rest .process-step {
+    position: relative;
+    padding-top: 40px;
+    border-top: 2px solid var(--line);
+  }
+
+  #rdmx-rest .process-step::before {
+    counter-increment: step;
+    content: counter(step, decimal-leading-zero);
+    position: absolute;
+    top: -14px;
+    left: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #fff;
+    background: var(--growth);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #rdmx-rest .process-step h4 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  #rdmx-rest .process-step p {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  #rdmx-rest .portfolio-card {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  #rdmx-rest .portfolio-card .platform {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--growth);
+    text-transform: uppercase;
+  }
+
+  #rdmx-rest .portfolio-card h3 {
+    font-size: 17px;
+    margin: 8px 0 10px;
+  }
+
+  #rdmx-rest .portfolio-card p {
+    font-size: 13px;
+    color: #C7D2DA;
+    margin: 0 0 12px;
+  }
+
+  #rdmx-rest .portfolio-highlights {
+    margin: 0;
+    padding-left: 16px;
+  }
+
+  #rdmx-rest .portfolio-highlights li {
+    font-size: 12.5px;
+    color: #C7D2DA;
+    margin-bottom: 5px;
+  }
+
+  #rdmx-rest .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  #rdmx-rest .testimonial-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+  }
+
+  #rdmx-rest .stars {
+    color: #F2A93B;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  #rdmx-rest .author-name {
+    font-weight: 700;
+    font-size: 13.5px;
+    display: block;
+  }
+
+  #rdmx-rest .author-role {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  #rdmx-rest .quote {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  #rdmx-rest .faq-item {
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+  }
+
+  #rdmx-rest .faq-item summary {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    cursor: pointer;
+  }
+
+  #rdmx-rest .faq-item p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 8px 0 0;
+    line-height: 1.6;
+  }
+
+  #rdmx-rest .cta-banner {
+    background: var(--growth);
+    color: #fff;
+    border-radius: 18px;
+    padding: 36px 28px;
+    text-align: center;
+  }
+
+  #rdmx-rest .cta-banner h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  #rdmx-rest .cta-banner p {
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 18px;
+    font-size: 14px;
+  }
+
+  #rdmx-rest .cta-banner .btn {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 24px;
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+
+  /* --- FOOTER --- */
+  footer {
+    background: #0F172A;
+    color: #94A3B8;
+    padding: 45px 20px 20px 20px;
+    font-size: 14px;
+  }
+
+  .footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 30px;
+  }
+
+  .footer-brand h3 {
+    color: #38BDF8;
+    margin: 0 0 12px 0;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #94A3B8;
+    margin: 0;
+  }
+
+  .footer-links h4 {
+    color: #FFFFFF;
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+  }
+
+  .footer-links a {
+    color: #94A3B8;
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #38BDF8;
+  }
+
+  .social-grid {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    align-items: center;
+  }
+
+  .social-link {
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+  }
+
+  .social-link:hover {
+    transform: translateY(-3px);
+  }
+
+  .social-link img {
+    width: 36px;
+    height: 36px;
+    display: block;
+    object-fit: contain;
+  }
+
+  .bottom-bar {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 35px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12.5px;
+    color: #64748B;
+  }
+
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    #rdmx-sites-hero .wrap { grid-template-columns: 1fr; }
+    #rdmx-rest .services-grid, #rdmx-rest .testimonial-grid { grid-template-columns: 1fr; }
+    #rdmx-rest .process-list { grid-template-columns: 1fr 1fr; }
+    .footer-container { grid-template-columns: 1fr; gap: 25px; }
+  }
 </style>
 </head>
 <body>
+
+  <!-- HERO SECTION -->
   <div id="rdmx-sites-hero">
     <div class="wrap">
       <div>
@@ -50,5 +483,198 @@
       </div>
     </div>
   </div>
+
+  <!-- MAIN SERVICES & CONTENT SECTION -->
+  <div id="rdmx-rest">
+    <div class="wrap">
+
+      <!-- SERVICES -->
+      <section class="section">
+        <div class="section-head">
+          <span class="eyebrow">Services</span>
+          <h2>Everything your brand needs to grow online</h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <span class="icon-tag">Paid Ads</span>
+            <h3>Paid Advertising</h3>
+            <p>Meta Ads, Google Ads, TikTok Ads, LinkedIn Ads, Advanced Audience Segmentation &amp; Lookalike Audiences.</p>
+          </div>
+          <div class="service-card">
+            <span class="icon-tag">Social</span>
+            <h3>Social Media Marketing</h3>
+            <p>Management &amp; Content Creation for Facebook, Instagram, TikTok, LinkedIn, Pinterest, X, and Reddit.</p>
+          </div>
+          <div class="service-card">
+            <span class="icon-tag">Analytics</span>
+            <h3>Tracking &amp; Analytics</h3>
+            <p>Pixel &amp; API Setup, GA4 (Attribution Modeling, Reports, Funnels) and Google Looker Studio Dashboards.</p>
+          </div>
+          <div class="service-card">
+            <span class="icon-tag">E-Commerce</span>
+            <h3>E-Commerce &amp; CRO</h3>
+            <p>Shopify/WooCommerce Setup, Google Merchant Center, Shopping Ads, Remarketing, A/B Testing &amp; Conversion Optimization.</p>
+          </div>
+          <div class="service-card">
+            <span class="icon-tag">SEO &amp; Content</span>
+            <h3>SEO &amp; YouTube Growth</h3>
+            <p>Google SEO, YouTube SEO, Channel Management, Content Creation, and SEO/Website Content Writing.</p>
+          </div>
+          <div class="service-card">
+            <span class="icon-tag">Copywriting</span>
+            <h3>Copywriting &amp; Sales Funnels</h3>
+            <p>Persuasive Ad Copywriting (AIDA, PAS), Sales Funnel Writing, Email Sequences, and Sales Pages.</p>
+          </div>
+          <div class="service-card">
+            <span class="icon-tag">Development</span>
+            <h3>Web &amp; Landing Pages</h3>
+            <p>Landing Page Development, WordPress, Basic HTML/CSS, Domain/Hosting Setup, Google Sites, and Blogger.</p>
+          </div>
+          <div class="service-card">
+            <span class="icon-tag">Creative</span>
+            <h3>Design &amp; Media Production</h3>
+            <p>Logo Design, Social Posts, Banner Design, CapCut Video Editing, and Canva Assets.</p>
+          </div>
+          <div class="service-card">
+            <span class="icon-tag">Strategy &amp; AI</span>
+            <h3>AI, Strategy &amp; Operations</h3>
+            <p>AI Tools (ChatGPT, Claude, Gemini), Brand Positioning, Strategy Planning, Email Marketing, and VA Operations.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section class="section">
+        <div class="section-head">
+          <span class="eyebrow">How We Work</span>
+          <h2>A simple, four-step process</h2>
+        </div>
+        <div class="process-list">
+          <div class="process-step"><h4>Audit</h4><p>Free review of your current presence.</p></div>
+          <div class="process-step"><h4>Strategy</h4><p>A clear plan built around your goals.</p></div>
+          <div class="process-step"><h4>Execute</h4><p>Campaigns go live — managed end-to-end.</p></div>
+          <div class="process-step"><h4>Grow</h4><p>Monthly reporting and optimization.</p></div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section class="section">
+        <div class="section-head">
+          <span class="eyebrow">Recent Work</span>
+          <h2>Results from real client work</h2>
+        </div>
+        <div class="portfolio-card">
+          <span class="platform">Social Media Management</span>
+          <h3>Sorme Cosmetics</h3>
+          <p>Managed social media for this vegan, cruelty-free makeup &amp; skincare brand (sorme.com) across Instagram, Facebook &amp; TikTok — Jan 2024 to Aug 2025.</p>
+          <ul class="portfolio-highlights">
+            <li>Planned &amp; scheduled content calendars aligned with product launches and promotions</li>
+            <li>Monitored page performance to support e-commerce &amp; retail goals</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="section">
+        <div class="section-head">
+          <span class="eyebrow">Client Feedback</span>
+          <h2>Real, verified reviews from Fiverr</h2>
+        </div>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <span class="author-name">deebritt7</span><span class="author-role">United States</span>
+            <div class="stars">★★★★★</div>
+            <p class="quote">"Rubel did a wonderful job creating content for my brand. Very experienced and knowledgeable. I would not hesitate working with him again."</p>
+          </div>
+          <div class="testimonial-card">
+            <span class="author-name">gwefinc</span><span class="author-role">United States — Repeat Client</span>
+            <div class="stars">★★★★★</div>
+            <p class="quote">"He is the best, I will certainly continue to use him. It is his patience and quality of work I am most pleased with."</p>
+          </div>
+          <div class="testimonial-card">
+            <span class="author-name">tonyharris68</span><span class="author-role">United Kingdom</span>
+            <div class="stars">★★★★★</div>
+            <p class="quote">"Excellent with communication, very professional and his work is quality. Hope to continue working with him!"</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section">
+        <div class="section-head">
+          <span class="eyebrow">FAQ</span>
+          <h2>Common questions before we start</h2>
+        </div>
+        <details class="faq-item">
+          <summary>What does the free audit actually include?</summary>
+          <p>A review of your current social media pages, ad accounts, or YouTube channel — with clear notes on what's working, what's not, and where you're likely losing customers or ad spend.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you work with businesses outside Bangladesh?</summary>
+          <p>Yes — most current clients are based in the USA, Canada, Australia and Europe. All communication is in English, over WhatsApp, email or your preferred tool.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is there a minimum contract length?</summary>
+          <p>No long-term lock-in. Most clients start with a one-month trial period before committing to an ongoing retainer.</p>
+        </details>
+      </section>
+
+      <!-- CTA BANNER -->
+      <section class="section">
+        <div class="cta-banner">
+          <h2>Ready to grow your brand online?</h2>
+          <p>Get a free audit and see exactly what's holding your business back — no cost, no obligation.</p>
+          <a class="btn" href="https://api.whatsapp.com/send?phone=8801778997944&text=Hi,%20I%20would%20like%20to%20get%20a%20free%20audit%20for%20my%20brand." target="_blank" rel="noopener noreferrer">Get Your Free Audit</a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Rubel DMX</h3>
+        <p>Data-driven Digital Marketing, SEO, and Social Media Growth Expert. Dedicated to helping businesses scale with proven online strategies.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Follow Rubel DMX</h4>
+        <div class="social-grid">
+          <a href="https://www.linkedin.com/in/md-rubel-hosen-bd/" target="_blank" class="social-link" title="LinkedIn">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Official Logo">
+          </a>
+          <a href="https://www.facebook.com/rubel.dmx.bd/" target="_blank" class="social-link" title="Facebook">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook Official Logo">
+          </a>
+          <a href="https://www.instagram.com/rubel.dmx/" target="_blank" class="social-link" title="Instagram">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Official Logo">
+          </a>
+          <a href="https://www.pinterest.com/RubelDMX/" target="_blank" class="social-link" title="Pinterest">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145808.png" alt="Pinterest Official Logo">
+          </a>
+          <a href="https://x.com/RubelDMX" target="_blank" class="social-link" title="X (Twitter)">
+            <img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="X Official Logo">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      © 2026 Rubel DMX. All Rights Reserved.
+    </div>
+  </footer>
+
 </body>
 </html>
