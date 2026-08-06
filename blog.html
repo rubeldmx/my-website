@@ -1,193 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rubel DMX - Digital Marketing & Blog</title>
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
-  body { background-color: #f8fafc; color: #1e293b; padding: 20px 10px; }
-  .blog-wrapper { max-width: 1200px; margin: 0 auto; }
+  <style>
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      font-family: 'Inter', sans-serif; 
+    }
+    body { 
+      background-color: #f8fafc; 
+      color: #1e293b; 
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    /* Main Content Wrapper */
+    .blog-wrapper { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 40px 20px;
+      flex: 1;
+      width: 100%;
+    }
 
-  /* Search Bar Layout */
-  .top-bar { display: flex; justify-content: flex-end; margin-bottom: 20px; }
-  .search-box { position: relative; width: 280px; }
-  .search-box input {
-    width: 100%; padding: 9px 38px 9px 14px; border: 1px solid #d1d5db;
-    border-radius: 8px; outline: none; font-size: 14px; color: #374151; background: #fff;
-  }
-  .search-box input:focus { border-color: #2563eb; }
-  .search-box i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #6b7280; font-size: 14px; }
+    /* Search Bar Layout */
+    .top-bar { display: flex; justify-content: flex-end; margin-bottom: 20px; }
+    .search-box { position: relative; width: 280px; }
+    .search-box input {
+      width: 100%; padding: 9px 38px 9px 14px; border: 1px solid #d1d5db;
+      border-radius: 8px; outline: none; font-size: 14px; color: #374151; background: #fff;
+    }
+    .search-box input:focus { border-color: #2563eb; }
+    .search-box i { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #6b7280; font-size: 14px; }
 
-  /* Filter Category Buttons */
-  .category-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
-  .cat-btn {
-    background: #f1f5f9; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px;
-    color: #4b5563; font-weight: 500; font-size: 13.5px; cursor: pointer; transition: all 0.2s ease;
-  }
-  .cat-btn:hover, .cat-btn.active { background: #ebf5ff; color: #1d4ed8; border-color: #bfdbfe; font-weight: 600; }
+    /* Filter Category Buttons */
+    .category-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
+    .cat-btn {
+      background: #f1f5f9; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 6px;
+      color: #4b5563; font-weight: 500; font-size: 13.5px; cursor: pointer; transition: all 0.2s ease;
+    }
+    .cat-btn:hover, .cat-btn.active { background: #ebf5ff; color: #1d4ed8; border-color: #bfdbfe; font-weight: 600; }
 
-  /* 3 Column Grid Layout */
-  .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 24px; }
+    /* 3 Column Grid Layout */
+    .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 24px; }
 
-  /* Blog Card Styling */
-  .card {
-    background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden;
-    display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08); }
+    /* Blog Card Styling */
+    .card {
+      background: #ffffff; border: 1px solid #e2e8f0; border-radius: 14px; overflow: hidden;
+      display: flex; flex-direction: column; transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08); }
 
-  /* Banner & Blue Ribbon */
-  .card-banner { position: relative; width: 100%; height: 185px; background-color: #0284c7; overflow: hidden; }
-  .card-banner img { width: 100%; height: 100%; object-fit: cover; }
-  .ribbon {
-    position: absolute; top: 18px; left: -32px; background: #2563eb; color: #ffffff;
-    padding: 3px 35px; transform: rotate(-45deg); font-size: 9.5px; font-weight: 800;
-    letter-spacing: 0.8px; text-transform: uppercase; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 2;
-  }
+    /* Banner & Blue Ribbon */
+    .card-banner { position: relative; width: 100%; height: 185px; background-color: #0284c7; overflow: hidden; }
+    .card-banner img { width: 100%; height: 100%; object-fit: cover; }
+    .ribbon {
+      position: absolute; top: 18px; left: -32px; background: #2563eb; color: #ffffff;
+      padding: 3px 35px; transform: rotate(-45deg); font-size: 9.5px; font-weight: 800;
+      letter-spacing: 0.8px; text-transform: uppercase; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 2;
+    }
 
-  /* Content Body */
-  .card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
-  .meta-pills { display: flex; gap: 12px; margin-bottom: 12px; }
-  .meta-pill {
-    background: #f8fafc; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 20px;
-    font-size: 11.5px; color: #6b7280; display: inline-flex; align-items: center; gap: 5px;
-  }
-  .tag-badge {
-    align-self: flex-start; background: #f1f5f9; border: 1px solid #e2e8f0; color: #374151;
-    font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 6px; margin-bottom: 12px;
-  }
-  .card-title { font-size: 16.5px; font-weight: 700; color: #0f172a; line-height: 1.4; margin-bottom: 10px; }
-  .card-title a { color: inherit; text-decoration: none; }
-  .card-title a:hover { color: #2563eb; }
-  .card-excerpt { font-size: 13px; color: #64748b; line-height: 1.55; margin-bottom: 16px; }
-  .read-more-btn { color: #0f172a; font-weight: 700; font-size: 13px; text-decoration: underline; cursor: pointer; }
-  .read-more-btn:hover { color: #2563eb; }
-  .no-posts { grid-column: 1 / -1; text-align: center; padding: 50px 0; color: #94a3b8; font-size: 15px; }
-</style>
+    /* Content Body */
+    .card-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+    .meta-pills { display: flex; gap: 12px; margin-bottom: 12px; }
+    .meta-pill {
+      background: #f8fafc; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 20px;
+      font-size: 11.5px; color: #6b7280; display: inline-flex; align-items: center; gap: 5px;
+    }
+    .tag-badge {
+      align-self: flex-start; background: #f1f5f9; border: 1px solid #e2e8f0; color: #374151;
+      font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 6px; margin-bottom: 12px;
+    }
+    .card-title { font-size: 16.5px; font-weight: 700; color: #0f172a; line-height: 1.4; margin-bottom: 10px; }
+    .card-title a { color: inherit; text-decoration: none; }
+    .card-title a:hover { color: #2563eb; }
+    .card-excerpt { font-size: 13px; color: #64748b; line-height: 1.55; margin-bottom: 16px; }
+    .read-more-btn { color: #0f172a; font-weight: 700; font-size: 13px; text-decoration: underline; cursor: pointer; }
+    .read-more-btn:hover { color: #2563eb; }
+    .no-posts { grid-column: 1 / -1; text-align: center; padding: 50px 0; color: #94a3b8; font-size: 15px; }
+
+    /* Footer Styling */
+    footer { background: #0F172A; color: #94A3B8; padding: 45px 20px 20px 20px; font-size: 14px; margin-top: auto; }
+    .footer-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 30px; }
+    
+    .footer-brand h3 { color: #38BDF8; margin: 0 0 12px 0; font-size: 24px; font-weight: 700; }
+    .footer-brand p { font-size: 13px; line-height: 1.6; color: #94A3B8; margin: 0; }
+    
+    .footer-links h4 { color: #FFFFFF; margin: 0 0 16px 0; font-size: 16px; font-weight: 600; }
+    .footer-links ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { color: #94A3B8; text-decoration: none; font-size: 13.5px; transition: color 0.2s; }
+    .footer-links a:hover { color: #38BDF8; }
+    
+    /* Official Social Logo Styling */
+    .social-grid { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 5px; align-items: center; }
+    .social-link { text-decoration: none; transition: transform 0.2s ease-in-out; display: inline-block; }
+    .social-link:hover { transform: translateY(-3px); }
+    .social-link img { width: 36px; height: 36px; display: block; object-fit: contain; }
+
+    .bottom-bar { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 35px; padding-top: 20px; text-align: center; font-size: 12.5px; color: #64748B; }
+    
+    @media (max-width: 768px) { 
+      .footer-container { grid-template-columns: 1fr; gap: 25px; } 
+    }
+  </style>
 </head>
 <body>
 
-<div class="blog-wrapper">
-  <!-- Search -->
-  <div class="top-bar">
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search Articles..." onkeyup="filterBlog()">
-      <i class="fa-solid fa-magnifying-glass"></i>
+  <!-- Main Blog Section -->
+  <div class="blog-wrapper">
+    <!-- Search -->
+    <div class="top-bar">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search Articles..." onkeyup="filterBlog()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
     </div>
+
+    <!-- Categories Bar -->
+    <div class="category-bar">
+      <button class="cat-btn active" onclick="setCategory('All', this)">All</button>
+      <button class="cat-btn" onclick="setCategory('Digital Marketing', this)">Digital Marketing</button>
+      <button class="cat-btn" onclick="setCategory('SEO', this)">SEO</button>
+      <button class="cat-btn" onclick="setCategory('Social Media', this)">Social Media</button>
+      <button class="cat-btn" onclick="setCategory('Content Marketing', this)">Content Marketing</button>
+      <button class="cat-btn" onclick="setCategory('Email Marketing', this)">Email Marketing</button>
+      <button class="cat-btn" onclick="setCategory('PPC & Ads', this)">PPC & Ads</button>
+    </div>
+
+    <!-- Posts Grid -->
+    <div class="posts-grid" id="postsGrid"></div>
   </div>
 
-  <!-- Categories Bar (Digital Marketing First) -->
-  <div class="category-bar">
-    <button class="cat-btn active" onclick="setCategory('All', this)">All</button>
-    <button class="cat-btn" onclick="setCategory('Digital Marketing', this)">Digital Marketing</button>
-    <button class="cat-btn" onclick="setCategory('SEO', this)">SEO</button>
-    <button class="cat-btn" onclick="setCategory('Social Media', this)">Social Media</button>
-    <button class="cat-btn" onclick="setCategory('Content Marketing', this)">Content Marketing</button>
-    <button class="cat-btn" onclick="setCategory('Email Marketing', this)">Email Marketing</button>
-    <button class="cat-btn" onclick="setCategory('PPC & Ads', this)">PPC & Ads</button>
-  </div>
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>Rubel DMX</h3>
+        <p>Data-driven Digital Marketing, SEO, and Social Media Growth Expert. Dedicated to helping businesses scale with proven online strategies.</p>
+      </div>
 
-  <!-- Posts Grid -->
-  <div class="posts-grid" id="postsGrid"></div>
-</div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
 
-<script>
-  // =============================================================
-  // 📝 Digital Marketing Focused Blog Posts Array
-  // =============================================================
-  const blogPosts = [
-    {
-      id: 1,
-      title: "How Professional Social Media Management Boosts Brand Growth and Sales",
-      category: "Social Media",
-      author: "Rubel DMX",
-      date: "August 6, 2026",
-      image: "https://github.com/rubeldmx/my-website/blob/main/How%20Professional%20Social%20Media%20Management%20Boosts%20Brand%20Growth%20and%20Sales.jpeg?raw=true",
-      excerpt: "In today's digital landscape, professional social media management isn't just about posting pretty pictures and witty captions. It's a strategic approach that transforms your online presence into a powerful sales engine. Whether you're running a small business or managing an eCommerce brand, the right social media strategy can dramatically increase your visibility, engagement, and bottom line...",
-      link: "https://sites.google.com/view/rubel-dmx/blog/social-media-marketing"
-    },
-    {
-      id: 2,
-      title: "How Search Intent Drives Modern SEO Strategy",
-      category: "SEO",
-      author: "MD RUBEL",
-      date: "July 29, 2026",
-      badgeText: "MD RUBEL",
-      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
-      excerpt: "Understanding organic search algorithms and buyer intent to optimize content for high-converting keywords...",
-      link: "#"
-    },
-    {
-      id: 3,
-      title: "Maximizing ROI with Targeted Social Media Campaigns",
-      category: "Social Media",
-      author: "MD RUBEL",
-      date: "July 27, 2026",
-      badgeText: "MD RUBEL",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop",
-      excerpt: "A practical breakdown of designing high-engagement social media campaigns tailored for US consumer segments...",
-      link: "#"
-    }
-  ];
-
-  let activeCategory = 'All';
-
-  function renderPosts(items) {
-    const grid = document.getElementById('postsGrid');
-    grid.innerHTML = '';
-
-    if (items.length === 0) {
-      grid.innerHTML = '<div class="no-posts">No articles found matching your criteria.</div>';
-      return;
-    }
-
-    items.forEach(post => {
-      grid.innerHTML += `
-        <div class="card">
-          <div class="card-banner">
-            <div class="ribbon">${post.badgeText}</div>
-            <img src="${post.image}" alt="${post.title}">
-          </div>
-          <div class="card-body">
-            <div class="meta-pills">
-              <span class="meta-pill"><i class="fa-regular fa-user"></i> ${post.author}</span>
-              <span class="meta-pill"><i class="fa-regular fa-calendar"></i> ${post.date}</span>
-            </div>
-            <span class="tag-badge">${post.category}</span>
-            <h3 class="card-title">
-              <a href="${post.link}">${post.title}</a>
-            </h3>
-            <p class="card-excerpt">${post.excerpt} <a href="${post.link}" class="read-more-btn">Read More</a></p>
-          </div>
+      <div class="footer-links">
+        <h4>Follow Rubel DMX</h4>
+        <div class="social-grid">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/md-rubel-hosen-bd/" target="_blank" class="social-link" title="LinkedIn">
+            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Official Logo">
+          </a>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/rubel.dmx.bd/" target="_blank" class="social-link" title="Facebook">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook Official Logo">
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/rubel.dmx/" target="_blank" class="social-link" title="Instagram">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Official Logo">
+          </a>
+          <!-- Pinterest -->
+          <a href="https://www.pinterest.com/RubelDMX/" target="_blank" class="social-link" title="Pinterest">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145808.png" alt="Pinterest Official Logo">
+          </a>
+          <!-- X (Twitter) -->
+          <a href="https://x.com/RubelDMX" target="_blank" class="social-link" title="X (Twitter)">
+            <img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="X Official Logo">
+          </a>
         </div>
-      `;
-    });
-  }
+      </div>
+    </div>
 
-  function setCategory(cat, element) {
-    activeCategory = cat;
-    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-    element.classList.add('active');
-    filterBlog();
-  }
+    <div class="bottom-bar">
+      © 2026 Rubel DMX. All Rights Reserved.
+    </div>
+  </footer>
 
-  function filterBlog() {
-    const searchText = document.getElementById('searchInput').value.toLowerCase();
-    const filtered = blogPosts.filter(post => {
-      const matchesCat = (activeCategory === 'All' || post.category === activeCategory);
-      const matchesSearch = post.title.toLowerCase().includes(searchText) || 
-                            post.excerpt.toLowerCase().includes(searchText);
-      return matchesCat && matchesSearch;
-    });
-    renderPosts(filtered);
-  }
+  <!-- JavaScript functionality -->
+  <script>
+    const blogPosts = [
+      {
+        id: 1,
+        title: "How Professional Social Media Management Boosts Brand Growth and Sales",
+        category: "Social Media",
+        author: "Rubel DMX",
+        date: "August 6, 2026",
+        badgeText: "Rubel DMX",
+        image: "https://github.com/rubeldmx/my-website/blob/main/How%20Professional%20Social%20Media%20Management%20Boosts%20Brand%20Growth%20and%20Sales.jpeg?raw=true",
+        excerpt: "In today's digital landscape, professional social media management isn't just about posting pretty pictures and witty captions. It's a strategic approach that transforms your online presence into a powerful sales engine. Whether you're running a small business or managing an eCommerce brand, the right social media strategy can dramatically increase your visibility, engagement, and bottom line...",
+        link: "https://sites.google.com/view/rubel-dmx/blog/social-media-marketing"
+      },
+      {
+        id: 2,
+        title: "How Search Intent Drives Modern SEO Strategy",
+        category: "SEO",
+        author: "MD RUBEL",
+        date: "July 29, 2026",
+        badgeText: "MD RUBEL",
+        image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
+        excerpt: "Understanding organic search algorithms and buyer intent to optimize content for high-converting keywords...",
+        link: "#"
+      },
+      {
+        id: 3,
+        title: "Maximizing ROI with Targeted Social Media Campaigns",
+        category: "Social Media",
+        author: "MD RUBEL",
+        date: "July 27, 2026",
+        badgeText: "MD RUBEL",
+        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop",
+        excerpt: "A practical breakdown of designing high-engagement social media campaigns tailored for US consumer segments...",
+        link: "#"
+      }
+    ];
 
-  // Initial load
-  renderPosts(blogPosts);
-</script>
+    let activeCategory = 'All';
+
+    function renderPosts(items) {
+      const grid = document.getElementById('postsGrid');
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        grid.innerHTML = '<div class="no-posts">No articles found matching your criteria.</div>';
+        return;
+      }
+
+      items.forEach(post => {
+        grid.innerHTML += `
+          <div class="card">
+            <div class="card-banner">
+              <div class="ribbon">${post.badgeText || 'Rubel DMX'}</div>
+              <img src="${post.image}" alt="${post.title}">
+            </div>
+            <div class="card-body">
+              <div class="meta-pills">
+                <span class="meta-pill"><i class="fa-regular fa-user"></i> ${post.author}</span>
+                <span class="meta-pill"><i class="fa-regular fa-calendar"></i> ${post.date}</span>
+              </div>
+              <span class="tag-badge">${post.category}</span>
+              <h3 class="card-title">
+                <a href="${post.link}">${post.title}</a>
+              </h3>
+              <p class="card-excerpt">${post.excerpt} <a href="${post.link}" class="read-more-btn">Read More</a></p>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function setCategory(cat, element) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+      element.classList.add('active');
+      filterBlog();
+    }
+
+    function filterBlog() {
+      const searchText = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = blogPosts.filter(post => {
+        const matchesCat = (activeCategory === 'All' || post.category === activeCategory);
+        const matchesSearch = post.title.toLowerCase().includes(searchText) || 
+                              post.excerpt.toLowerCase().includes(searchText);
+        return matchesCat && matchesSearch;
+      });
+      renderPosts(filtered);
+    }
+
+    // Initial load
+    renderPosts(blogPosts);
+  </script>
 
 </body>
 </html>
