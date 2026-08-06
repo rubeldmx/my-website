@@ -1,68 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rubel DMX - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
-  body{ margin:0; padding:0; }
-  #rdmx-portfolio{
-    --ink:#0E1B2A; --ink-soft:#16283F; --paper:#F7F8F4;
-    --growth:#1FA35C; --growth-dark:#157A44; --muted:#5B6B7A; --line:rgba(14,27,42,0.10); --white:#fff;
-    font-family:'Inter',sans-serif; color:var(--ink); background:var(--paper);
-    padding:36px 24px 48px; box-sizing:border-box;
+  /* Portfolio Styles */
+  body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: #F7F8F4; }
+  
+  #rdmx-portfolio {
+    --ink: #0E1B2A; 
+    --ink-soft: #16283F; 
+    --paper: #F7F8F4;
+    --growth: #1FA35C; 
+    --growth-dark: #157A44; 
+    --muted: #5B6B7A; 
+    --line: rgba(14,27,42,0.10); 
+    --white: #fff;
+    color: var(--ink); 
+    padding: 36px 24px 48px; 
+    box-sizing: border-box;
   }
-  #rdmx-portfolio *{box-sizing:border-box;}
-  #rdmx-portfolio h1,#rdmx-portfolio h2,#rdmx-portfolio h3{font-family:'Sora',sans-serif; margin:0;}
-  #rdmx-portfolio .wrap{max-width:1000px; margin:0 auto;}
-  #rdmx-portfolio .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--growth-dark); display:block; margin-bottom:10px;}
-  #rdmx-portfolio .page-head{max-width:700px; margin-bottom:32px;}
-  #rdmx-portfolio .page-head h1{font-size:32px; font-weight:800;}
-  #rdmx-portfolio .page-head p{color:var(--muted); margin-top:10px; font-size:15px; line-height:1.7;}
+  #rdmx-portfolio * { box-sizing: border-box; }
+  #rdmx-portfolio h1, #rdmx-portfolio h2, #rdmx-portfolio h3 { font-family: 'Sora', sans-serif; margin: 0; }
+  #rdmx-portfolio .wrap { max-width: 1000px; margin: 0 auto; }
+  #rdmx-portfolio .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--growth-dark); display: block; margin-bottom: 10px; }
+  #rdmx-portfolio .page-head { max-width: 700px; margin-bottom: 32px; }
+  #rdmx-portfolio .page-head h1 { font-size: 32px; font-weight: 800; }
+  #rdmx-portfolio .page-head p { color: var(--muted); margin-top: 10px; font-size: 15px; line-height: 1.7; }
 
-  #rdmx-portfolio .stats-bar{background:var(--white); border:1px solid var(--line); border-radius:16px; padding:26px; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; text-align:center; margin-bottom:40px;}
-  #rdmx-portfolio .stat-num{font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:600; color:var(--growth-dark);}
-  #rdmx-portfolio .stat-label{font-size:12px; color:var(--muted); margin-top:4px;}
+  #rdmx-portfolio .stats-bar { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; text-align: center; margin-bottom: 40px; }
+  #rdmx-portfolio .stat-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 600; color: var(--growth-dark); }
+  #rdmx-portfolio .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
-  #rdmx-portfolio .section{margin-bottom:40px;}
-  #rdmx-portfolio .section-head{margin-bottom:20px;}
-  #rdmx-portfolio .section-head h2{font-size:24px; font-weight:800;}
+  #rdmx-portfolio .section { margin-bottom: 40px; }
+  #rdmx-portfolio .section-head { margin-bottom: 20px; }
+  #rdmx-portfolio .section-head h2 { font-size: 24px; font-weight: 800; }
 
-  #rdmx-portfolio .case-card{background:var(--ink); color:var(--paper); border-radius:18px; padding:30px;}
-  #rdmx-portfolio .case-card .platform{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--growth); text-transform:uppercase;}
-  #rdmx-portfolio .case-card h3{font-size:20px; margin:10px 0 12px;}
-  #rdmx-portfolio .case-card p{font-size:14px; color:#C7D2DA; margin:0 0 14px; line-height:1.7;}
-  #rdmx-portfolio .case-card ul{margin:0; padding-left:18px;}
-  #rdmx-portfolio .case-card li{font-size:13.5px; color:#C7D2DA; margin-bottom:8px; line-height:1.6;}
-  #rdmx-portfolio .case-meta{font-family:'IBM Plex Mono',monospace; font-size:11px; color:#9FB0BE; margin-bottom:6px;}
-  #rdmx-portfolio .result-row{display:flex; gap:24px; margin-top:16px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.15);}
-  #rdmx-portfolio .result-num{font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:600; color:var(--growth);}
-  #rdmx-portfolio .result-label{font-size:11.5px; color:#9FB0BE;}
+  #rdmx-portfolio .case-card { background: var(--ink); color: var(--paper); border-radius: 18px; padding: 30px; }
+  #rdmx-portfolio .case-card .platform { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--growth); text-transform: uppercase; }
+  #rdmx-portfolio .case-card h3 { font-size: 20px; margin: 10px 0 12px; }
+  #rdmx-portfolio .case-card p { font-size: 14px; color: #C7D2DA; margin: 0 0 14px; line-height: 1.7; }
+  #rdmx-portfolio .case-card ul { margin: 0; padding-left: 18px; }
+  #rdmx-portfolio .case-card li { font-size: 13.5px; color: #C7D2DA; margin-bottom: 8px; line-height: 1.6; }
+  #rdmx-portfolio .case-meta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9FB0BE; margin-bottom: 6px; }
+  #rdmx-portfolio .result-row { display: flex; gap: 24px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.15); flex-wrap: wrap; }
+  #rdmx-portfolio .result-num { font-family: 'IBM Plex Mono', monospace; font-size: 20px; font-weight: 600; color: var(--growth); }
+  #rdmx-portfolio .result-label { font-size: 11.5px; color: #9FB0BE; }
 
-  #rdmx-portfolio .cert-list{display:flex; flex-direction:column; gap:12px;}
-  #rdmx-portfolio .cert-item{background:var(--white); border:1px solid var(--line); border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:14px;}
-  #rdmx-portfolio .cert-item .icon{font-size:22px;}
-  #rdmx-portfolio .cert-item h4{font-size:14.5px; font-weight:700; margin:0;}
-  #rdmx-portfolio .cert-item p{font-size:12.5px; color:var(--muted); margin:2px 0 0;}
+  #rdmx-portfolio .cert-list { display: flex; flex-direction: column; gap: 12px; }
+  #rdmx-portfolio .cert-item { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 14px; }
+  #rdmx-portfolio .cert-item .icon { font-size: 22px; }
+  #rdmx-portfolio .cert-item h4 { font-size: 14.5px; font-weight: 700; margin: 0; }
+  #rdmx-portfolio .cert-item p { font-size: 12.5px; color: var(--muted); margin: 2px 0 0; }
 
-  #rdmx-portfolio .testimonial-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
-  #rdmx-portfolio .testimonial-card{background:var(--white); border:1px solid var(--line); border-radius:14px; padding:18px;}
-  #rdmx-portfolio .stars{color:#F2A93B; font-size:13px; margin-bottom:8px;}
-  #rdmx-portfolio .author-name{font-weight:700; font-size:13.5px; display:block;}
-  #rdmx-portfolio .author-role{font-size:11px; color:var(--muted);}
-  #rdmx-portfolio .quote{font-size:12.5px; color:var(--ink-soft); font-style:italic; margin-top:10px; line-height:1.6;}
+  #rdmx-portfolio .testimonial-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+  #rdmx-portfolio .testimonial-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  #rdmx-portfolio .stars { color: #F2A93B; font-size: 13px; margin-bottom: 8px; }
+  #rdmx-portfolio .author-name { font-weight: 700; font-size: 13.5px; display: block; }
+  #rdmx-portfolio .author-role { font-size: 11px; color: var(--muted); }
+  #rdmx-portfolio .quote { font-size: 12.5px; color: var(--ink-soft); font-style: italic; margin-top: 10px; line-height: 1.6; }
 
-  #rdmx-portfolio .cta-banner{background:var(--growth); color:#fff; border-radius:18px; padding:36px 28px; text-align:center;}
-  #rdmx-portfolio .cta-banner h2{font-size:22px; margin-bottom:8px;}
-  #rdmx-portfolio .cta-banner p{color:rgba(255,255,255,0.9); margin-bottom:18px; font-size:14px;}
-  #rdmx-portfolio .btn{display:inline-block; background:var(--ink); color:#fff; font-weight:700; font-size:14px; padding:12px 24px; border-radius:24px; text-decoration:none;}
+  #rdmx-portfolio .cta-banner { background: var(--growth); color: #fff; border-radius: 18px; padding: 36px 28px; text-align: center; }
+  #rdmx-portfolio .cta-banner h2 { font-size: 22px; margin-bottom: 8px; }
+  #rdmx-portfolio .cta-banner p { color: rgba(255,255,255,0.9); margin-bottom: 18px; font-size: 14px; }
+  #rdmx-portfolio .btn { display: inline-block; background: var(--ink); color: #fff; font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 24px; text-decoration: none; }
 
   @media (max-width:700px){
-    #rdmx-portfolio .stats-bar{grid-template-columns:repeat(2,1fr);}
-    #rdmx-portfolio .testimonial-grid{grid-template-columns:1fr;}
+    #rdmx-portfolio .stats-bar { grid-template-columns: repeat(2,1fr); }
+    #rdmx-portfolio .testimonial-grid { grid-template-columns: 1fr; }
   }
+
+  /* Footer Styles */
+  footer { background: #0F172A; color: #94A3B8; padding: 45px 20px 20px 20px; font-size: 14px; }
+  .footer-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 30px; }
+  
+  .footer-brand h3 { color: #38BDF8; margin: 0 0 12px 0; font-size: 24px; font-weight: 700; }
+  .footer-brand p { font-size: 13px; line-height: 1.6; color: #94A3B8; margin: 0; }
+  
+  .footer-links h4 { color: #FFFFFF; margin: 0 0 16px 0; font-size: 16px; font-weight: 600; }
+  .footer-links ul { list-style: none; padding: 0; margin: 0; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { color: #94A3B8; text-decoration: none; font-size: 13.5px; transition: color 0.2s; }
+  .footer-links a:hover { color: #38BDF8; }
+  
+  .social-grid { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 5px; align-items: center; }
+  .social-link { text-decoration: none; transition: transform 0.2s ease-in-out; display: inline-block; }
+  .social-link:hover { transform: translateY(-3px); }
+  .social-link img { width: 36px; height: 36px; display: block; object-fit: contain; }
+
+  .bottom-bar { border-top: 1px solid rgba(255,255,255,0.08); margin-top: 35px; padding-top: 20px; text-align: center; font-size: 12.5px; color: #64748B; }
+  
+  @media (max-width: 768px) { .footer-container { grid-template-columns: 1fr; gap: 25px; } }
 </style>
 </head>
 <body>
+
 <div id="rdmx-portfolio">
   <div class="wrap">
 
@@ -79,6 +113,7 @@
       <div><div class="stat-num">Since 2022</div><div class="stat-label">Freelancing</div></div>
     </div>
 
+    <!-- Case Study 1 -->
     <div class="section">
       <div class="section-head">
         <span class="eyebrow">Case Study</span>
@@ -96,6 +131,7 @@
       </div>
     </div>
 
+    <!-- Case Study 2 -->
     <div class="section">
       <div class="section-head">
         <span class="eyebrow">Case Study</span>
@@ -118,8 +154,30 @@
       </div>
     </div>
 
-    <div class="section"> <div class="section-head"> <span class="eyebrow">Case Study</span> <h2>Google Ads Campaign & Management-BrightPeak Solutions </h2> </div> <div class="case-card"> <div class="platform">Google Search Ads </div> <div</div> <h3>Google Ads Campaign Performance</h3> <p>Targeted ad setup and keyword structure optimization to generate impressions and traffic.</p> <ul> <li>Restructured campaigns and set up search target keywords</li> <li>Monitored impressions, clicks, and overall ad spend efficiency</li> </ul> <div class="result-row"> <div><div class="result-num">347k</div><div class="result-label">Impressions</div></div> <div><div class="result-num">10,410 </div><div class="result-label">Clicks</div></div> <div><div class="result-num">$367</div><div class="result-label">Total Spend</div></div> <div><div class="result-num">$521</div><div class="result-label"> Convertions.</div></div> </div> </div> </div> 
+    <!-- Case Study 3 (Fixed Syntax) -->
+    <div class="section">
+      <div class="section-head">
+        <span class="eyebrow">Case Study</span>
+        <h2>Google Ads Campaign &amp; Management - BrightPeak Solutions</h2>
+      </div>
+      <div class="case-card">
+        <div class="platform">Google Search Ads</div>
+        <h3>Google Ads Campaign Performance</h3>
+        <p>Targeted ad setup and keyword structure optimization to generate impressions and traffic.</p>
+        <ul>
+          <li>Restructured campaigns and set up search target keywords</li>
+          <li>Monitored impressions, clicks, and overall ad spend efficiency</li>
+        </ul>
+        <div class="result-row">
+          <div><div class="result-num">347k</div><div class="result-label">Impressions</div></div>
+          <div><div class="result-num">10,410</div><div class="result-label">Clicks</div></div>
+          <div><div class="result-num">$367</div><div class="result-label">Total Spend</div></div>
+          <div><div class="result-num">521</div><div class="result-label">Conversions</div></div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Certifications -->
     <div class="section">
       <div class="section-head">
         <span class="eyebrow">Certifications</span>
@@ -131,6 +189,7 @@
       </div>
     </div>
 
+    <!-- Reviews -->
     <div class="section">
       <div class="section-head">
         <span class="eyebrow">Client Feedback</span>
@@ -155,15 +214,60 @@
       </div>
     </div>
 
+    <!-- Call to Action Banner -->
     <div class="cta-banner">
       <h2>Want results like these for your business?</h2>
       <p>Get a free audit and see exactly what's holding your business back — no cost, no obligation.</p>
-      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSca8BWobOvlAe0k_7JmMgfeVvl7I-xsLv0w8T_x_ZFUOvs_kw/viewform" target="_top">Get Your Free Audit</a>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSca8BWobOvlAe0k_7JmMgfeVvl7I-xsLv0w8T_x_ZFUOvs_kw/viewform" target="_blank" rel="noopener noreferrer">Get Your Free Audit</a>
     </div>
 
   </div>
 </div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>Rubel DMX</h3>
+      <p>Data-driven Digital Marketing, SEO, and Social Media Growth Expert. Dedicated to helping businesses scale with proven online strategies.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h4>Follow Rubel DMX</h4>
+      <div class="social-grid">
+        <a href="https://www.linkedin.com/in/md-rubel-hosen-bd/" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Official Logo">
+        </a>
+        <a href="https://www.facebook.com/rubel.dmx.bd/" target="_blank" rel="noopener noreferrer" class="social-link" title="Facebook">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook Official Logo">
+        </a>
+        <a href="https://www.instagram.com/rubel.dmx/" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram Official Logo">
+        </a>
+        <a href="https://www.pinterest.com/RubelDMX/" target="_blank" rel="noopener noreferrer" class="social-link" title="Pinterest">
+          <img src="https://cdn-icons-png.flaticon.com/512/145/145808.png" alt="Pinterest Official Logo">
+        </a>
+        <a href="https://x.com/RubelDMX" target="_blank" rel="noopener noreferrer" class="social-link" title="X (Twitter)">
+          <img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png" alt="X Official Logo">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    © 2026 Rubel DMX. All Rights Reserved.
+  </div>
+</footer>
+
 </body>
 </html>
-
-
