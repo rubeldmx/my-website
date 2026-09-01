@@ -129,6 +129,18 @@
     border-radius: 999px;
     padding: 10px 18px;
     margin-top: 4px;
+    animation: rdmx-pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes rdmx-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(31,163,92,0.35);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(31,163,92,0);
+      transform: scale(1.02);
+    }
   }
 
   #rdmx-sites-hero .stat-earning .stat-num {
@@ -140,7 +152,6 @@
     font-size: 12.5px;
   }
 
-
   #rdmx-sites-hero .stat-num {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 22px;
@@ -148,20 +159,13 @@
     color: var(--growth);
   }
 
-  .partial-star {
-    position: relative;
-    display: inline-block;
-    color: #3A4A58;
-  }
-
-  .partial-star::before {
-    content: '★';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 90%;
-    overflow: hidden;
-    color: #F2A93B;
+  .stars-rating {
+    background: linear-gradient(90deg, #F2A93B 0%, #F2A93B 98%, #3A4A58 98%, #3A4A58 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
   }
 
   #rdmx-sites-hero .stat-label {
@@ -514,10 +518,10 @@
       <div class="stat-card">
         <div class="label"><span>Verified Track Record</span></div>
         <div class="stat-grid">
-          <div><div class="stat-num">260+</div><div class="stat-label">Projects Completed</div></div>
-          <div><div class="stat-num">120+</div><div class="stat-label">Clients Served</div></div>
+          <div><div class="stat-num" id="rdmx-hero-projects">0+</div><div class="stat-label">Projects Completed</div></div>
+          <div><div class="stat-num" id="rdmx-hero-clients">0+</div><div class="stat-label">Clients Served</div></div>
           <div><div class="stat-num">Since 2022</div><div class="stat-label">Freelancing</div></div>
-          <div><div class="stat-num">4.9 <span style="color:#F2A93B;">★★★★</span><span class="partial-star">★</span></div><div class="stat-label">Average Rating</div></div>
+          <div><div class="stat-num">4.9 <span class="stars-rating">★★★★★</span></div><div class="stat-label">Average Rating</div></div>
           <div class="stat-earning"><div class="stat-num">$10,000+</div><div class="stat-label">Total Earned</div></div>
         </div>
       </div>
@@ -715,6 +719,50 @@
       © 2026 Rubel DMX. All Rights Reserved.
     </div>
   </footer>
+
+<script>
+  (function () {
+    var duration = 1800;
+
+    function animateNumber(el, target, prefix, suffix) {
+      var startTime = null;
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.floor(eased * target);
+        el.textContent = prefix + current.toLocaleString('en-US') + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = prefix + target.toLocaleString('en-US') + suffix;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    var counters = [
+      { id: 'rdmx-hero-projects', target: 260, prefix: '', suffix: '+' },
+      { id: 'rdmx-hero-clients', target: 120, prefix: '', suffix: '+' }
+    ];
+
+    counters.forEach(function (c) {
+      var el = document.getElementById(c.id);
+      if (!el) return;
+      var started = false;
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            animateNumber(el, c.target, c.prefix, c.suffix);
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      observer.observe(el);
+    });
+  })();
+</script>
 
 </body>
 </html>
