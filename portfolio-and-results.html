@@ -30,9 +30,43 @@
   #rdmx-portfolio .page-head h1 { font-size: 32px; font-weight: 800; }
   #rdmx-portfolio .page-head p { color: var(--muted); margin-top: 10px; font-size: 15px; line-height: 1.7; }
 
-  #rdmx-portfolio .stats-bar { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 26px; display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; text-align: center; margin-bottom: 40px; }
+  #rdmx-portfolio .stats-bar { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 26px; margin-bottom: 40px; }
+  #rdmx-portfolio .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; text-align: center; }
+  #rdmx-portfolio .stat-earning {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    background: rgba(31,163,92,0.10);
+    border: 1px solid rgba(31,163,92,0.30);
+    animation: rdmx-pulse 2.4s ease-in-out infinite;
+  }
+  #rdmx-portfolio .stat-earning .stat-num { font-size: 30px; font-weight: 700; }
+  #rdmx-portfolio .stat-earning .stat-label { margin-top: 0; font-size: 14px; font-weight: 600; }
+
+  @keyframes rdmx-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(31,163,92,0.35);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(31,163,92,0);
+      transform: scale(1.02);
+    }
+  }
   #rdmx-portfolio .stat-num { font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 600; color: var(--growth-dark); }
   #rdmx-portfolio .stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  #rdmx-portfolio .stars-rating {
+    background: linear-gradient(90deg, #F2A93B 0%, #F2A93B 98%, #C9D3DA 98%, #C9D3DA 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
+  }
 
   #rdmx-portfolio .section { margin-bottom: 40px; }
   #rdmx-portfolio .section-head { margin-bottom: 20px; }
@@ -68,7 +102,7 @@
   #rdmx-portfolio .btn { display: inline-block; background: var(--ink); color: #fff; font-weight: 700; font-size: 14px; padding: 12px 24px; border-radius: 24px; text-decoration: none; }
 
   @media (max-width:700px){
-    #rdmx-portfolio .stats-bar { grid-template-columns: repeat(2,1fr); }
+    #rdmx-portfolio .stats-grid { grid-template-columns: repeat(2,1fr); }
     #rdmx-portfolio .testimonial-grid { grid-template-columns: 1fr; }
   }
 
@@ -107,10 +141,13 @@
     </div>
 
     <div class="stats-bar">
-      <div><div class="stat-num">390+</div><div class="stat-label">Projects Completed</div></div>
-      <div><div class="stat-num">175+</div><div class="stat-label">Clients Served</div></div>
-      <div><div class="stat-num">4.9★</div><div class="stat-label">Average Rating</div></div>
-      <div><div class="stat-num">Since 2022</div><div class="stat-label">Freelancing</div></div>
+      <div class="stats-grid">
+        <div><div class="stat-num">260+</div><div class="stat-label">Projects Completed</div></div>
+        <div><div class="stat-num">120+</div><div class="stat-label">Clients Served</div></div>
+        <div><div class="stat-num">4.9 <span class="stars-rating">★★★★★</span></div><div class="stat-label">Average Rating</div></div>
+        <div><div class="stat-num">Since 2022</div><div class="stat-label">Freelancing</div></div>
+      </div>
+      <div class="stat-earning"><div class="stat-num" id="rdmx-earning-count">$0+</div><div class="stat-label">Total Earned</div></div>
     </div>
 
     <!-- Case Study 1 -->
@@ -139,7 +176,7 @@
       </div>
       <div class="case-card">
         <div class="platform">Meta Ads (Facebook &amp; Instagram)</div>
-        <div class="case-meta">Aug 20225 – Nov 2025 (23 campaigns managed)</div>
+        <div class="case-meta">Aug 2025 – Nov 2025 (23 campaigns managed)</div>
         <h3>Long-term Meta Ads account management</h3>
         <p>Managed and ran Meta Ads campaigns across engagement, reach, traffic, and lead-generation objectives for this long-term client, continuously testing creative and targeting to keep cost-per-result low.</p>
         <ul>
@@ -154,7 +191,7 @@
       </div>
     </div>
 
-    <!-- Case Study 3 (Fixed Syntax) -->
+    <!-- Case Study 3 -->
     <div class="section">
       <div class="section-head">
         <span class="eyebrow">Case Study</span>
@@ -268,6 +305,47 @@
     © 2026 Rubel DMX. All Rights Reserved.
   </div>
 </footer>
+
+<script>
+  (function () {
+    var el = document.getElementById('rdmx-earning-count');
+    if (!el) return;
+    var target = 10000;
+    var duration = 1800;
+    var started = false;
+
+    function animateCount() {
+      if (started) return;
+      started = true;
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.floor(eased * target);
+        el.textContent = '$' + current.toLocaleString('en-US') + '+';
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = '$' + target.toLocaleString('en-US') + '+';
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCount();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    observer.observe(el);
+  })();
+</script>
 
 </body>
 </html>
