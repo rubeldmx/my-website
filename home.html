@@ -123,11 +123,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background: rgba(31,163,92,0.12);
     border: 1px solid rgba(31,163,92,0.35);
     border-radius: 999px;
-    padding: 10px 18px;
+    padding: 16px 24px;
     margin-top: 4px;
     animation: rdmx-pulse 2.4s ease-in-out infinite;
   }
@@ -144,12 +144,12 @@
   }
 
   #rdmx-sites-hero .stat-earning .stat-num {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   #rdmx-sites-hero .stat-earning .stat-label {
     margin-top: 0;
-    font-size: 12.5px;
+    font-size: 14px;
   }
 
   #rdmx-sites-hero .stat-num {
@@ -183,6 +183,14 @@
     font-family: 'Sora', sans-serif;
     margin: 0;
   }
+
+  #rdmx-rest .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  #rdmx-rest .cert-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; gap: 14px; align-items: flex-start; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+  #rdmx-rest .cert-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(14,27,42,0.10); border-color: var(--growth); }
+  #rdmx-rest .cert-card .cert-icon { font-size: 26px; line-height: 1; }
+  #rdmx-rest .cert-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
+  #rdmx-rest .cert-card p { font-size: 12.5px; color: var(--muted); margin: 0; line-height: 1.5; }
+  #rdmx-rest .cert-card .cert-year { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--growth-dark); display: block; margin-top: 8px; }
 
   #rdmx-rest .section {
     padding: 44px 0;
@@ -315,6 +323,27 @@
     font-size: 12.5px;
     color: #C7D2DA;
     margin-bottom: 5px;
+  }
+
+  #rdmx-rest .result-row {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  #rdmx-rest .result-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--growth);
+  }
+
+  #rdmx-rest .result-label {
+    font-size: 11.5px;
+    color: #9FB0BE;
   }
 
   #rdmx-rest .testimonial-grid {
@@ -496,7 +525,7 @@
   /* Responsive Styling */
   @media (max-width: 768px) {
     #rdmx-sites-hero .wrap { grid-template-columns: 1fr; }
-    #rdmx-rest .services-grid, #rdmx-rest .testimonial-grid { grid-template-columns: 1fr; }
+    #rdmx-rest .services-grid, #rdmx-rest .testimonial-grid, #rdmx-rest .cert-grid { grid-template-columns: 1fr; }
     #rdmx-rest .process-list { grid-template-columns: 1fr 1fr; }
     .footer-container { grid-template-columns: 1fr; gap: 25px; }
   }
@@ -522,7 +551,7 @@
           <div><div class="stat-num" id="rdmx-hero-clients">0+</div><div class="stat-label">Clients Served</div></div>
           <div><div class="stat-num">Since 2022</div><div class="stat-label">Freelancing</div></div>
           <div><div class="stat-num">4.9 <span class="stars-rating">★★★★★</span></div><div class="stat-label">Average Rating</div></div>
-          <div class="stat-earning"><div class="stat-num">$10,000+</div><div class="stat-label">Total Earned</div></div>
+          <div class="stat-earning"><div class="stat-num">$10,000+</div><div class="stat-label">Total Ad Spend Managed</div></div>
         </div>
       </div>
     </div>
@@ -601,20 +630,46 @@
         </div>
       </section>
 
+      <!-- CERTIFICATIONS -->
+      <section class="section" style="padding-top:0;">
+        <div class="section-head">
+          <span class="eyebrow">Certifications</span>
+          <h2>Verified credentials</h2>
+        </div>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <span class="cert-icon">🎓</span>
+            <div><h3>Google Ads Search Certification</h3><p>Issued by Google</p><span class="cert-year">2026</span></div>
+          </div>
+          <div class="cert-card">
+            <span class="cert-icon">🎓</span>
+            <div><h3>Google AI-Powered Performance Ads Certification</h3><p>Issued by Google</p><span class="cert-year">2026</span></div>
+          </div>
+          <div class="cert-card">
+            <span class="cert-icon">🎓</span>
+            <div><h3>Professional SEO &amp; Digital Marketing</h3><p>UY LAB · Achieved Level 3 out of 4</p><span class="cert-year">2021</span></div>
+          </div>
+        </div>
+      </section>
+
       <!-- PORTFOLIO -->
       <section class="section">
         <div class="section-head">
-          <span class="eyebrow">Recent Work</span>
           <h2>Results from real client work</h2>
         </div>
         <div class="portfolio-card">
-          <span class="platform">Social Media Management</span>
-          <h3>Sorme Cosmetics</h3>
-          <p>Managed social media for this vegan, cruelty-free makeup &amp; skincare brand (sorme.com) across Instagram, Facebook &amp; TikTok — Jan 2024 to Aug 2025.</p>
+          <span class="platform">Meta Ads — Lead Generation</span>
+          <h3>Elite Prime Health</h3>
+          <p>Managed a long-running Meta Ads account generating health insurance (ACA) leads — testing 20 campaign variations across offers, audiences and creatives to keep cost per lead low. Feb 2024 – May 2025.</p>
           <ul class="portfolio-highlights">
-            <li>Planned &amp; scheduled content calendars aligned with product launches and promotions</li>
-            <li>Monitored page performance to support e-commerce &amp; retail goals</li>
+            <li>Generated 1,360+ leads at an average of around $4 per lead</li>
+            <li>Drove 146k+ impressions and 5,080+ link clicks</li>
           </ul>
+          <div class="result-row">
+            <div><div class="result-num">1,360+</div><div class="result-label">Leads Generated</div></div>
+            <div><div class="result-num">~$4</div><div class="result-label">Avg. Cost Per Lead</div></div>
+            <div><div class="result-num">$5,700+</div><div class="result-label">Ad Spend Managed</div></div>
+          </div>
         </div>
       </section>
 
