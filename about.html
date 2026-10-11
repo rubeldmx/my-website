@@ -194,6 +194,16 @@
     #rdmx-about .card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
     #rdmx-about .card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
 
+
+    /* Certifications */
+    #rdmx-about .cert-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    #rdmx-about .cert-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; gap: 14px; align-items: flex-start; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+    #rdmx-about .cert-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(14,27,42,0.10); border-color: var(--growth); }
+    #rdmx-about .cert-card .cert-icon { font-size: 26px; line-height: 1; }
+    #rdmx-about .cert-card h3 { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
+    #rdmx-about .cert-card p { font-size: 12.5px; color: var(--muted); margin: 0; line-height: 1.5; }
+    #rdmx-about .cert-card .cert-year { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--growth-dark); display: block; margin-top: 8px; }
+
     /* Tech Stack & Tools */
     #rdmx-about .tools-flex { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
 
@@ -292,6 +302,7 @@
     @media (max-width: 768px) {
       #rdmx-about .hero-section { grid-template-columns: 1fr; }
       #rdmx-about .grid-3 { grid-template-columns: 1fr; }
+      #rdmx-about .cert-grid { grid-template-columns: 1fr; }
       .footer-container { grid-template-columns: 1fr; gap: 25px; }
     }
   </style>
@@ -356,6 +367,28 @@
             <span class="tag">03. Execution</span>
             <h3>Continuous Optimization</h3>
             <p>Ad creatives, target audiences, and landing pages are constantly A/B tested to improve performance and scale profitably.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications -->
+      <section class="section" style="padding-top:0;">
+        <div class="section-head">
+          <span class="eyebrow">Certifications</span>
+          <h2>Verified credentials</h2>
+        </div>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <span class="cert-icon">🎓</span>
+            <div><h3>Google Ads Search Certification</h3><p>Issued by Google</p><span class="cert-year">2026</span></div>
+          </div>
+          <div class="cert-card">
+            <span class="cert-icon">🎓</span>
+            <div><h3>Google AI-Powered Performance Ads Certification</h3><p>Issued by Google</p><span class="cert-year">2026</span></div>
+          </div>
+          <div class="cert-card">
+            <span class="cert-icon">🎓</span>
+            <div><h3>Professional SEO &amp; Digital Marketing</h3><p>UY LAB · Achieved Level 3 out of 4</p><span class="cert-year">2021</span></div>
           </div>
         </div>
       </section>
